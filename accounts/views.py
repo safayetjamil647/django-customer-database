@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import OrderForm, CreateUserForm
 from .filters import OrderFilter
+from .decorators import unauthenticated_user
+
 
 @login_required(login_url='login')
 def home(request):
@@ -21,10 +23,12 @@ def home(request):
                'pending': pending, 'delivered': delivered, }
     return render(request, 'accounts/dashboard.html', context)
 
+
 @login_required(login_url='login')
 def products(request):
     products = Product.objects.all()
     return render(request, 'accounts/products.html', {'products': products})
+
 
 @login_required(login_url='login')
 def customer(request, pk_test):
@@ -36,6 +40,7 @@ def customer(request, pk_test):
     context = {'customer': customer, 'orders': orders, 'order_count': order_count,
                'myFilter': myFilter}
     return render(request, 'accounts/customer.html', context)
+
 
 @login_required(login_url='login')
 def createOrder(request, pk):
@@ -53,6 +58,7 @@ def createOrder(request, pk):
 
     return render(request, 'accounts/order_form.html', context)
 
+
 @login_required(login_url='login')
 def updateOrder(request, pk):
     order = Order.objects.get(id=pk)
@@ -66,6 +72,7 @@ def updateOrder(request, pk):
 
     return render(request, 'accounts/order_form.html', context)
 
+
 @login_required(login_url='login')
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
@@ -76,29 +83,23 @@ def deleteOrder(request, pk):
 
     return render(request, 'accounts/delete.html', context)
 
-
+@unauthenticated_user
 def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        form = CreateUserForm()
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
 
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was create for ' + user)
-                return redirect('login')
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was create for ' + user)
+            return redirect('login')
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
-
+@unauthenticated_user
 def loginPage(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
