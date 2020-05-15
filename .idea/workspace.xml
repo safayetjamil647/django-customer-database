@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d5544cd0-71bf-44b9-a71c-edca013de8e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/status.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/decorators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -58,10 +58,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="858" y="233" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1589206658285" />
-    <state x="337" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1589206617246">
+    <state x="337" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1589550911766">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="337" y="273" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1589206617246" />
+    <state x="337" y="273" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1589550911766" />
     <state x="749" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1588257736130">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
